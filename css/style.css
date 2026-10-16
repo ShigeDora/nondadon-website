@@ -350,3 +350,34 @@ body::before {
 .f-brand { font-family: var(--f-serif); font-weight: 900; font-size: 1.3rem; }
 .f-note { opacity: .8; max-width: 46em; margin-top: 1.2em !important; }
 .f-copy { opacity: .6; margin-top: 1.2em !important; }
+
+/* ---------- オープニング（css/ship-scene.css の部品） ---------- */
+/* 共通の section の余白が付くと、船の進み具合の計算がずれるので打ち消す */
+.ship-scene { padding: 0; }
+
+/* 縦書きの中の英字（IT）を縦中横にする */
+.ship-scene .tcy { text-combine-upright: all; }
+
+/* 最後に出る「のんだどん」。表示・非表示は js/ship-scene.js が opacity で切り替える */
+.ship-scene__brand {
+  position: absolute; margin: 0; opacity: 0; pointer-events: none;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-serif); font-weight: 900; line-height: 1;
+  color: #7A1F4E; /* 舞台はダークモードでも明るい紙色なので、主色を固定で使う */
+}
+/* 横長の画面：グラスの左の余白に縦書きで大きく
+   （全体像ではグラスの左端が画面中央から約 37vh 左に来る） */
+@media (min-aspect-ratio: 5/4) {
+  .ship-scene__brand {
+    top: 64px; bottom: 0; left: 0; width: calc(50vw - 37vh);
+    writing-mode: vertical-rl; letter-spacing: .16em;
+    font-size: min(11vh, calc((50vw - 37vh) * .5));
+  }
+}
+/* 縦長・正方形に近い画面：グラスの上に横書きで */
+@media not (min-aspect-ratio: 5/4) {
+  .ship-scene__brand {
+    left: 0; right: 0; top: calc(64px + 3vh);
+    letter-spacing: .1em; font-size: min(12vw, 3.4rem);
+  }
+}

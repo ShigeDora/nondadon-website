@@ -13,8 +13,9 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥃</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@600;700;900&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/ship-scene.css">
 </head>
 <body>
 
@@ -37,8 +38,46 @@
 
 <main id="main">
 
+  <!-- ===== オープニング：グラスの中の桜島（js/ship-scene.js でスクロール連動） ===== -->
+  <!-- .hero は overflow:hidden のため、sticky が効くようにその外に置いています -->
+  <section class="ship-scene" id="top" aria-label="ピンクの船が航跡をたどって桜島へ向かい、グラス全体が見えるまでカメラが引いていくアニメーション">
+    <div class="ship-scene__stage">
+
+      <!-- グラスと山（船と航跡を抜いた絵） -->
+      <img class="ship-scene__art" src="images/glass_base.webp" width="3162" height="3162"
+           alt="墨絵のグラスの中に、噴煙をあげる桜島と、航跡を残して山へ向かうピンクの小さな船が描かれたイラスト">
+
+      <!-- 航跡と船 -->
+      <svg class="ship-scene__fx" preserveAspectRatio="none" viewBox="1000 1800 800 600" aria-hidden="true">
+        <defs>
+          <mask id="ship-scene-wake-mask" maskUnits="userSpaceOnUse" x="1000" y="1780" width="760" height="560">
+            <!-- 船が進む道筋（＝航跡の中心線） -->
+            <path class="ship-scene__route" fill="none" stroke="#fff" stroke-width="84"
+                  stroke-linecap="butt" stroke-linejoin="round"
+                  d="M1661 2262 L1650 2251 L1642 2243 L1633 2234 L1626 2224 L1620 2213 L1616 2202 L1611 2191 L1604 2180 L1596 2172 L1585 2166 L1573 2162 L1561 2160 L1549 2158 L1537 2157 L1525 2156 L1513 2155 L1500 2155 L1488 2154 L1476 2152 L1465 2147 L1455 2141 L1447 2132 L1442 2120 L1441 2108 L1448 2098 L1458 2090 L1467 2083 L1476 2075 L1485 2066 L1493 2057 L1499 2046 L1503 2035 L1503 2022 L1500 2011 L1496 1999 L1489 1989 L1479 1982 L1468 1977 L1456 1974 L1444 1972 L1432 1969 L1420 1966 L1408 1965 L1396 1964 L1384 1963 L1372 1962 L1359 1962 L1347 1962 L1335 1961 L1323 1961 L1311 1961 L1298 1960 L1286 1959 L1274 1958 L1262 1956 L1250 1955 L1238 1953 L1225 1952 L1213 1951 L1201 1949 L1189 1948 L1177 1946 L1165 1945 L1153 1943 L1141 1941 L1129 1937 L1118 1933 L1107 1926 L1099 1918 L1095 1906 L1096 1894 L1101 1883 L1109 1874 L1119 1867 L1132 1860"/>
+          </mask>
+        </defs>
+        <image href="images/wake.webp" x="1080" y="1848" width="600" height="432" mask="url(#ship-scene-wake-mask)"/>
+        <g class="ship-scene__ship">
+          <g data-view="right"><image href="images/ship_rear-right.webp" x="-21.60" y="-87.30" width="80.28" height="94.26"/></g>
+          <g data-view="left" transform="scale(-1 1)"><image href="images/ship_rear-right.webp" x="-21.60" y="-87.30" width="80.28" height="94.26"/></g>
+          <g data-view="back"><image href="images/ship_rear.webp" x="-24.68" y="-90.02" width="49.37" height="93.90"/></g>
+        </g>
+      </svg>
+
+      <!-- ことば（不要なら <p> ごと消してOK） -->
+      <p class="ship-scene__line ship-scene__line--1">デジタルで、<br>　　焼酎を広げる。</p>
+      <p class="ship-scene__line ship-scene__line--2">めざすは、<br>　　　未踏。</p>
+      <p class="ship-scene__line ship-scene__line--3">焼酎の出会いを、<br>　　　もっと楽しく。</p>
+      <!-- 最後にグラス全体が映ったとき、グラスの左（スマホは上）に出す名前 -->
+      <p class="ship-scene__brand"><span>のんだどん</span></p>
+
+      <div class="ship-scene__hint"><span>スクロール</span><i></i></div>
+    </div>
+  </section>
+
   <!-- ===== トップ ===== -->
-  <section class="hero" id="top">
+  <section class="hero">
     <div class="hero-inner">
       <div class="hero-text">
         <p class="hero-badge">ISHIN 2026　鹿児島版AKATSUKIプロジェクト</p>
@@ -51,7 +90,6 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img class="hero-glass" src="images/hero-glass.png" width="617" height="651" alt="桜島が浮かぶ焼酎グラスの水墨画風イラスト">
         <p class="hero-catch" aria-label="焼酎の出会いを、もっと楽しく。">
           <span>焼酎の出会いを、</span><span>もっと楽しく。</span>
         </p>
@@ -260,5 +298,6 @@
 
 <script src="js/news.js"></script>
 <script src="js/main.js"></script>
+<script src="js/ship-scene.js"></script>
 </body>
 </html>

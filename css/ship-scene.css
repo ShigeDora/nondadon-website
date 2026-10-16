@@ -1,0 +1,99 @@
+/* =========================================================
+   ship-scene.css
+   グラスの中の桜島：スクロールで船が進み、カメラが引いていく演出
+   すべて .ship-scene の中だけに効くので、既存サイトのCSSを汚しません
+   ========================================================= */
+
+.ship-scene{
+  /* 色（必要に応じて変更） */
+  --ss-paper:#f2f2ee;      /* 舞台の背景（紙の色） */
+  --ss-ink:#262626;        /* ことばの色 */
+  --ss-ink-soft:#6b6b68;   /* 補助の文字色 */
+  --ss-wake:#c9d6d8;       /* スクロール合図の線 */
+  --ss-ship:#e48cbc;       /* スクロール合図の流れる色 */
+
+  /* アニメーション全体の長さ。大きいほどゆっくり進む */
+  --ss-length:620vh;
+
+  position:relative;
+  height:var(--ss-length);
+  font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+}
+.ship-scene *,
+.ship-scene *::before,
+.ship-scene *::after{ box-sizing:border-box; }
+
+/* 墨絵は明るい紙の上でしか読めないので、ダークモードでも淡い紙色のまま少しだけ落とす */
+@media (prefers-color-scheme: dark){
+  .ship-scene{ --ss-paper:#d9d8d2; --ss-ink:#1f1f1f; --ss-ink-soft:#55554f; }
+}
+
+/* 画面に貼りつく舞台 */
+.ship-scene__stage{
+  position:sticky; top:0;
+  height:100vh; height:100svh;
+  overflow:hidden;
+  background:var(--ss-paper);
+}
+
+/* グラスと山の絵（船と航跡は抜いてある） */
+.ship-scene__art{
+  position:absolute; left:0; top:0;
+  width:3162px; height:3162px; max-width:none;
+  transform-origin:0 0;
+  will-change:transform;
+  user-select:none; -webkit-user-drag:none;
+}
+
+/* 航跡と船を描くSVG（拡大しても船がぼやけないよう、viewBoxでカメラを動かす） */
+.ship-scene__fx{
+  position:absolute; inset:0; width:100%; height:100%;
+  overflow:visible; pointer-events:none;
+}
+
+/* 縦書きのことば */
+.ship-scene__line{
+  position:absolute; margin:0;
+  writing-mode:vertical-rl;
+  font-weight:500;
+  font-size:clamp(1.15rem, 2.4vw, 1.7rem);
+  letter-spacing:.32em;
+  line-height:1.9;
+  color:var(--ss-ink);
+  opacity:0;
+  pointer-events:none;
+  padding:.9em .5em;
+  border-radius:40%;
+  background:color-mix(in srgb, var(--ss-paper) 72%, transparent);
+  box-shadow:0 0 28px 22px color-mix(in srgb, var(--ss-paper) 72%, transparent);
+}
+.ship-scene__line--1,
+.ship-scene__line--2{ right:8vw; bottom:12vh; }
+.ship-scene__line--3{ right:8vw; bottom:14vh; font-weight:700; font-size:clamp(1.3rem, 3vw, 2.1rem); }
+@media (max-width:640px){
+  .ship-scene__line--1,
+  .ship-scene__line--2{ right:7vw; bottom:9vh; }
+  .ship-scene__line--3{ right:7vw; bottom:6vh; }
+}
+
+/* スクロールの合図 */
+.ship-scene__hint{
+  position:absolute; left:50%; bottom:calc(5vh + env(safe-area-inset-bottom,0px));
+  transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:.7rem;
+  font-size:.78rem; letter-spacing:.4em; color:var(--ss-ink-soft);
+  transition:opacity .5s;
+}
+.ship-scene__hint i{
+  width:1px; height:48px; background:var(--ss-wake); position:relative; overflow:hidden;
+}
+.ship-scene__hint i::after{
+  content:""; position:absolute; left:0; top:-48px; width:1px; height:48px;
+  background:var(--ss-ship);
+  animation:ship-scene-drip 2.2s cubic-bezier(.6,0,.3,1) infinite;
+}
+@keyframes ship-scene-drip{ to{ top:48px; } }
+
+@media (prefers-reduced-motion: reduce){
+  .ship-scene__hint i::after{ animation:none; top:0; }
+}
