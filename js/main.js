@@ -6,13 +6,13 @@
     toggle.addEventListener("click", function () {
       var open = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      toggle.textContent = open ? "閉じる" : "メニュー";
+      toggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
     });
     nav.addEventListener("click", function (e) {
       if (e.target.tagName === "A" && nav.classList.contains("is-open")) {
         nav.classList.remove("is-open");
         toggle.setAttribute("aria-expanded", "false");
-        toggle.textContent = "メニュー";
+        toggle.setAttribute("aria-label", "メニューを開く");
       }
     });
   }
