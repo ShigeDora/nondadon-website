@@ -12,7 +12,7 @@
 
 ## 公開方法（GitHub Pages）
 
-公開URL：https://shigedora.github.io/nondadon-website/
+公開URL：https://main.d1z06gvf79o0ov.amplifyapp.com/
 
 ### 最初の1回だけ
 

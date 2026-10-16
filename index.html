@@ -31,6 +31,7 @@
       <a href="#project">活動</a>
       <a href="#news">お知らせ</a>
       <a href="#members">メンバー</a>
+      <a href="#sponsors">協賛</a>
       <a class="nav-contact" href="#contact">お問い合わせ</a>
     </nav>
   </div>
@@ -39,7 +40,6 @@
 <main id="main">
 
   <!-- ===== オープニング：グラスの中の桜島（js/ship-scene.js でスクロール連動） ===== -->
-  <!-- .hero は overflow:hidden のため、sticky が効くようにその外に置いています -->
   <section class="ship-scene" id="top" aria-label="ピンクの船が航跡をたどって桜島へ向かい、グラス全体が見えるまでカメラが引いていくアニメーション">
     <div class="ship-scene__stage">
 
@@ -76,33 +76,27 @@
     </div>
   </section>
 
-  <!-- ===== トップ ===== -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <p class="hero-badge">ISHIN 2026　鹿児島版AKATSUKIプロジェクト</p>
-        <h1 class="hero-title">のんだどん</h1>
-        <p class="hero-lead">鹿児島発の焼酎コレクションアプリです。<br>飲んだ一杯を写真に撮ると、銘柄と蔵元の名前と一緒に、自分だけの棚に並んでいきます。</p>
-        <p class="hero-team">鹿児島大学大学院 理工学研究科 情報科学専攻の学生6名で開発しています。</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#partners">ご協力のお願いを読む</a>
-          <a class="btn btn-ghost" href="#contact">お問い合わせ</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <p class="hero-catch" aria-label="焼酎の出会いを、もっと楽しく。">
-          <span>焼酎の出会いを、</span><span>もっと楽しく。</span>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ごあいさつ（名刺から来た方へ） ===== -->
-  <section class="greeting">
+  <!-- ===== のんだどんとは（トップ＋わたしたちについて） ===== -->
+  <section class="intro" id="about">
     <div class="wrap narrow">
-      <h2 class="h-sec">名刺をお受け取りいただいた方へ</h2>
-      <p>私たちは、経済産業省の地方人材育成プロジェクト「ISHIN 2026」の一員として、<strong>鹿児島の焼酎文化を、ITでもっと楽しくする</strong>ことをテーマに活動しています。</p>
-      <p>名刺だけではお伝えしきれない、私たちが何をつくっていて、なぜ蔵元や飲食店のみなさまのお力をお借りしたいのかを、このページにまとめました。</p>
+      <h1 class="h-sec">のんだどんとは</h1>
+      <p class="intro-catch">鹿児島発の焼酎コレクションアプリです。</p>
+      <p class="intro-lead">飲んだ一杯を撮るだけで、銘柄と蔵元の名前と一緒に、あなただけの焼酎コレクションが増えていく。その場限りになりがちな焼酎との出会いを、思い出として残せるアプリです。</p>
+
+      <div class="intro-us">
+        <h2 class="h-sub">わたしたちについて</h2>
+        <p>ISHIN 2026に参加している、鹿児島大学大学院の学生6名のチームです。蔵元・飲食店のみなさまのお力をお借りしながら、鹿児島の焼酎文化をITで盛り上げるアプリをつくっています。</p>
+      </div>
+
+      <a class="insta" href="https://www.instagram.com/nondadon__official?vrfl=MWdzbnF6OHYyeHBmag==" target="_blank" rel="noopener">
+        <img src="images/instagram-icon.png" width="44" height="44" alt="Instagram">
+        <span>フォローよろしくおねがいします！</span>
+      </a>
+
+      <div class="intro-actions">
+        <a class="btn btn-primary" href="#partners">ご協力のお願いを読む</a>
+        <a class="btn btn-ghost" href="#contact">お問い合わせ</a>
+      </div>
     </div>
   </section>
 
@@ -155,7 +149,7 @@
             <img src="images/shot-collection.jpg" width="560" height="1214" loading="lazy" alt="飲んだ焼酎の写真が並ぶコレクション画面">
             <figcaption>
               <span class="step-no">3</span>
-              <strong>棚にたまる</strong>
+              <strong>コレクションが増える</strong>
               <span>飲んだ焼酎が自分のコレクションに並び、全2,000銘柄のうち何銘柄を飲んだかがひと目でわかります。</span>
             </figcaption>
           </figure>
@@ -214,7 +208,7 @@
           <p>原料・麹・蒸留方法・おすすめの飲み方など、アプリに正しい情報を載せるために、蔵元のみなさまの情報をお借りしたいと考えています。</p>
         </section>
         <section class="ask">
-          <h4>試作版を使ってみてください</h4>
+          <h4>試作版を使ってみてください<span class="soon">※coming soon</span></h4>
           <p>お店やご自身の晩酌で、実際に記録してみてください。使いにくい点や、お客様の反応をうかがえると大変助かります。</p>
         </section>
         <section class="ask">
@@ -274,14 +268,34 @@
     </div>
   </section>
 
+  <!-- ===== 協賛 ===== -->
+  <section class="sponsors" id="sponsors">
+    <div class="wrap narrow">
+      <h2 class="h-sec">協賛</h2>
+      <!-- 追加するときは <li class="sponsor">…</li> を1つ複製してください。
+           白いロゴは <div class="sponsor-logo is-dark"> にすると暗い台の上に表示されます -->
+      <ul class="sponsor-list">
+        <li class="sponsor">
+          <div class="sponsor-logo"><img src="images/ishin2026_logo.svg" width="1534" height="372" loading="lazy" alt="ISHIN 2026 鹿児島版AKATSUKIプロジェクト"></div>
+          <p class="sponsor-name">課題自己定義コース</p>
+        </li>
+        <li class="sponsor">
+          <div class="sponsor-logo is-dark"><img src="images/link-spirits_logo.svg" width="220" height="146" loading="lazy" alt="LINK SPIRITS"></div>
+          <p class="sponsor-name">冨永 咲</p>
+          <p class="sponsor-role">LINK SPIRITS 株式会社 代表取締役</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ===== お問い合わせ ===== -->
   <section class="contact" id="contact">
     <div class="wrap narrow">
       <h2 class="h-sec">お問い合わせ</h2>
       <p>ヒアリングへのご協力、試作版の利用、取材など、のんだどんに関するご連絡はメールでお受けしています。お名前（店名・蔵元名）とご用件をお書き添えください。</p>
       <!-- ▼ 実際のメールアドレスに書き換えてください（2か所） -->
-      <a class="btn btn-primary btn-wide" href="mailto:nondadon@example.com?subject=%E3%81%AE%E3%82%93%E3%81%A0%E3%81%A9%E3%82%93%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">メールで問い合わせる</a>
-      <p class="mail-plain">nondadon@example.com</p>
+      <a class="btn btn-primary btn-wide" href="mailto:etou@mitou-ishin.com?subject=%E3%81%AE%E3%82%93%E3%81%A0%E3%81%A9%E3%82%93%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">メールで問い合わせる</a>
+      <p class="mail-plain">etou@mitou-ishin.com</p>
     </div>
   </section>
 
