@@ -144,11 +144,30 @@ body::before {
 .site-nav .nav-contact { background: var(--plum); color: var(--plum-ink); margin-left: 6px; }
 .site-nav .nav-contact:hover { background: var(--plum); opacity: .88; }
 .nav-toggle {
-  display: none; font: inherit; font-size: .9rem; font-weight: 700;
-  color: var(--ink); background: transparent; border: 1.5px solid var(--line);
-  border-radius: 999px; padding: .35em 1em; cursor: pointer;
+  display: none; position: relative; width: 44px; height: 44px; margin: 0 -10px 0 auto; padding: 0;
+  color: var(--ink); background: transparent; border: 0; cursor: pointer;
+}
+/* ハンバーガー（3本線）。開いているときは × になる */
+.nav-toggle__bars,
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  position: absolute; left: 50%; width: 24px; height: 2px; margin-left: -12px;
+  background: currentColor; border-radius: 2px;
+  transition: transform .25s ease, background-color .25s ease;
+}
+.nav-toggle__bars { top: 50%; margin-top: -1px; }
+.nav-toggle__bars::before,
+.nav-toggle__bars::after { content: ""; left: 0; margin-left: 0; }
+.nav-toggle__bars::before { transform: translateY(-7px); }
+.nav-toggle__bars::after { transform: translateY(7px); }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars { background-color: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::before { transform: rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::after { transform: rotate(-45deg); }
+@media (prefers-reduced-motion: reduce) {
+  .nav-toggle__bars, .nav-toggle__bars::before, .nav-toggle__bars::after { transition: none; }
 }
 @media (max-width: 860px) {
+  .brand { display: none; }
   .nav-toggle { display: block; }
   .site-nav {
     display: none; position: absolute; left: 0; right: 0; top: 64px;
@@ -342,7 +361,7 @@ body::before {
 .ship-scene__brand {
   position: absolute; margin: 0; opacity: 0; pointer-events: none;
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--f-serif); font-weight: 900; line-height: 1;
+  font-weight: 400; line-height: 1; /* 書体は css/ship-scene.css の Yuji Syuku */
   color: #7A1F4E; /* 舞台はダークモードでも明るい紙色なので、主色を固定で使う */
 }
 /* 横長の画面：グラスの左の余白に縦書きで大きく

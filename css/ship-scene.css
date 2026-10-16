@@ -17,7 +17,8 @@
 
   position:relative;
   height:var(--ss-length);
-  font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+  font-family:"Yuji Syuku","Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+  font-weight:400;
 }
 .ship-scene *,
 .ship-scene *::before,
@@ -55,21 +56,24 @@
 .ship-scene__line{
   position:absolute; margin:0;
   writing-mode:vertical-rl;
-  font-weight:500;
-  font-size:clamp(1.15rem, 2.4vw, 1.7rem);
+  font-weight:400; /* Yuji Syuku は 400 のみ */
+  font-size:clamp(1.5rem, min(3.4vw, 5vh), 2.6rem);
   letter-spacing:.32em;
+  /* Yuji Syuku に太字はないので、輪郭線を足して太字にする */
+  -webkit-text-stroke:.06em currentColor;
+  paint-order:stroke fill;
   line-height:1.9;
   color:var(--ss-ink);
   opacity:0;
   pointer-events:none;
   padding:.9em .5em;
   border-radius:40%;
-  background:color-mix(in srgb, var(--ss-paper) 72%, transparent);
-  box-shadow:0 0 28px 22px color-mix(in srgb, var(--ss-paper) 72%, transparent);
+  background:color-mix(in srgb, var(--ss-paper) 85%, transparent);
+  box-shadow:0 0 36px 28px color-mix(in srgb, var(--ss-paper) 85%, transparent);
 }
 .ship-scene__line--1,
 .ship-scene__line--2{ right:8vw; bottom:12vh; }
-.ship-scene__line--3{ right:8vw; bottom:14vh; font-weight:700; font-size:clamp(1.3rem, 3vw, 2.1rem); }
+.ship-scene__line--3{ right:8vw; bottom:14vh; font-size:clamp(1.7rem, min(4vw, 5vh), 3rem); }
 @media (max-width:640px){
   .ship-scene__line--1,
   .ship-scene__line--2{ right:7vw; bottom:9vh; }
@@ -81,6 +85,7 @@
   position:absolute; left:50%; bottom:calc(5vh + env(safe-area-inset-bottom,0px));
   transform:translateX(-50%);
   display:flex; flex-direction:column; align-items:center; gap:.7rem;
+  font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","YuMincho",serif; /* 合図だけは Yuji Syuku にしない */
   font-size:.78rem; letter-spacing:.4em; color:var(--ss-ink-soft);
   transition:opacity .5s;
 }
