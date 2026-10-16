@@ -10,17 +10,30 @@
 | `js/main.js` | メニュー開閉・お知らせ表示の処理 |
 | `images/` | 画像 |
 
-## 公開方法（サーバPC）
+## 公開方法（GitHub Pages）
 
-フォルダの中身をWebサーバの公開ディレクトリにそのままコピーするだけです。
+公開URL：https://shigedora.github.io/nondadon-website/
 
-例）nginx / Apache（Ubuntu）の場合
+### 最初の1回だけ
+
+1. GitHubでリポジトリを開き、**Settings → Pages** を開く
+2. **Source** を「Deploy from a branch」にする
+3. **Branch** を `main`、フォルダを `/ (root)` にして **Save**
+4. 数分後、上のURLで表示されることを確認
+
+### 更新するとき
+
+`main` ブランチに push するだけで、数分後にサイトに反映されます。
 
 ```sh
-sudo cp -r ./* /var/www/html/
+git add .
+git commit -m "更新内容"
+git push
 ```
 
-データベースやPHPは不要です。
+データベースやPHPは不要です。`.nojekyll` は GitHub の変換処理（Jekyll）を止めるためのファイルなので消さないでください。
+
+> リポジトリ名やアカウント名を変えた場合は、`index.html` の `og:url` と `og:image` のURLも書き換えてください。
 
 ## 公開前に書き換えるところ
 
