@@ -102,3 +102,25 @@
 @media (prefers-reduced-motion: reduce){
   .ship-scene__hint i::after{ animation:none; top:0; }
 }
+
+/* ---------- 英語版（en/index.html）：ことばを横書きにする ---------- */
+html[lang="en"] .ship-scene__line{
+  writing-mode:horizontal-tb;
+  letter-spacing:.02em;        /* 縦書き用の .32em だと単語がばらける */
+  line-height:1.4;
+  text-align:right;            /* 画面右下に置くので右揃え */
+  max-width:min(80vw, 22em);
+  padding:.6em 1em;
+  border-radius:2em;           /* 背景のぼかしを横長の文に合わせる */
+}
+/* 3つめは日本語版では大きめだが、英文は長いので他と同じ大きさに */
+html[lang="en"] .ship-scene__line--3{ font-size:clamp(1.5rem, min(3.4vw, 5vh), 2.6rem); }
+
+/* 横長の画面：グラスの左の余白に置く「Nondadon」も横書きにし、余白の幅に収まる大きさに */
+@media (min-aspect-ratio:5/4){
+  html[lang="en"] .ship-scene__brand{
+    writing-mode:horizontal-tb;
+    letter-spacing:.04em;
+    font-size:min(9vh, calc((50vw - 37vh) * .2));
+  }
+}
