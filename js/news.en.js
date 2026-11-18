@@ -5,6 +5,10 @@
    ========================================================= */
 window.NEWS = [
   {
+    date: "2026-10-30",
+    title: "We launched the Nondadon web version!"
+  },
+  {
     date: "2026-10-13",
     title: "We started interviewing distilleries and restaurants",
     body: "We are gathering feedback on the Taste Map and the recommendation feature."
