@@ -85,6 +85,8 @@ strong { font-weight: 700; }
   letter-spacing: .04em;
   margin: 0 0 .9em;
 }
+/* 英語版：見出しが折り返すとき、行の長さを揃えて1語だけの行を防ぐ */
+html[lang="en"] .h-sec { text-wrap: balance; }
 .h-sub {
   font-family: var(--f-serif);
   font-weight: 700;

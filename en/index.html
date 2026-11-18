@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nondadon | A Shochu Collection App from Kagoshima</title>
+  <meta name="description" content="Nondadon is a shochu collection app from Kagoshima that makes discovering shochu more fun. It is being developed by a graduate student team at Kagoshima University as part of ISHIN 2026. This page also includes our request for cooperation from distilleries and restaurants.">
+  <meta property="og:title" content="Nondadon | A Shochu Collection App from Kagoshima">
+  <meta property="og:description" content="Make every shochu encounter more fun. A shochu collection app in development at ISHIN 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://shigedora.github.io/nondadon-website/en/">
+  <meta property="og:image" content="https://shigedora.github.io/nondadon-website/images/hero-glass.png">
+  <link rel="alternate" hreflang="ja" href="https://shigedora.github.io/nondadon-website/">
+  <link rel="alternate" hreflang="en" href="https://shigedora.github.io/nondadon-website/en/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥃</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@600;700;900&family=Shippori+Mincho:wght@500;700&family=Yuji+Syuku&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/ship-scene.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top">Nondadon</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span class="nav-toggle__bars" aria-hidden="true"></span></button>
+    <nav id="site-nav" class="site-nav" aria-label="Page navigation">
+      <a href="#app">App</a>
+      <a href="#partners">Partner with Us</a>
+      <a href="#project">Our Project</a>
+      <a href="#news">News</a>
+      <a href="#members">Members</a>
+      <a href="#sponsors">Sponsors</a>
+      <a class="nav-contact" href="#contact">Contact</a>
+      <a class="nav-lang" href="../" lang="ja" hreflang="ja">日本語</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== オープニング：グラスの中の桜島（js/ship-scene.js でスクロール連動） ===== -->
+  <section class="ship-scene" id="top" aria-label="Animation: a pink boat follows its wake toward Sakurajima while the camera pulls back to reveal the whole glass">
+    <div class="ship-scene__stage">
+
+      <!-- グラスと山（船と航跡を抜いた絵） -->
+      <img class="ship-scene__art" src="../images/glass_base.webp" width="3162" height="3162"
+           alt="Ink-wash illustration of a glass containing Sakurajima volcano, smoking, and a small pink boat leaving a wake as it heads toward the mountain">
+
+      <!-- 航跡と船 -->
+      <svg class="ship-scene__fx" preserveAspectRatio="none" viewBox="1000 1800 800 600" aria-hidden="true">
+        <defs>
+          <mask id="ship-scene-wake-mask" maskUnits="userSpaceOnUse" x="1000" y="1780" width="760" height="560">
+            <!-- 船が進む道筋（＝航跡の中心線） -->
+            <path class="ship-scene__route" fill="none" stroke="#fff" stroke-width="84"
+                  stroke-linecap="butt" stroke-linejoin="round"
+                  d="M1661 2262 L1650 2251 L1642 2243 L1633 2234 L1626 2224 L1620 2213 L1616 2202 L1611 2191 L1604 2180 L1596 2172 L1585 2166 L1573 2162 L1561 2160 L1549 2158 L1537 2157 L1525 2156 L1513 2155 L1500 2155 L1488 2154 L1476 2152 L1465 2147 L1455 2141 L1447 2132 L1442 2120 L1441 2108 L1448 2098 L1458 2090 L1467 2083 L1476 2075 L1485 2066 L1493 2057 L1499 2046 L1503 2035 L1503 2022 L1500 2011 L1496 1999 L1489 1989 L1479 1982 L1468 1977 L1456 1974 L1444 1972 L1432 1969 L1420 1966 L1408 1965 L1396 1964 L1384 1963 L1372 1962 L1359 1962 L1347 1962 L1335 1961 L1323 1961 L1311 1961 L1298 1960 L1286 1959 L1274 1958 L1262 1956 L1250 1955 L1238 1953 L1225 1952 L1213 1951 L1201 1949 L1189 1948 L1177 1946 L1165 1945 L1153 1943 L1141 1941 L1129 1937 L1118 1933 L1107 1926 L1099 1918 L1095 1906 L1096 1894 L1101 1883 L1109 1874 L1119 1867 L1132 1860"/>
+          </mask>
+        </defs>
+        <image href="../images/wake.webp" x="1080" y="1848" width="600" height="432" mask="url(#ship-scene-wake-mask)"/>
+        <g class="ship-scene__ship">
+          <g data-view="right"><image href="../images/ship_rear-right.webp" x="-21.60" y="-87.30" width="80.28" height="94.26"/></g>
+          <g data-view="left" transform="scale(-1 1)"><image href="../images/ship_rear-right.webp" x="-21.60" y="-87.30" width="80.28" height="94.26"/></g>
+          <g data-view="back"><image href="../images/ship_rear.webp" x="-24.68" y="-90.02" width="49.37" height="93.90"/></g>
+        </g>
+      </svg>
+
+      <!-- ことば（不要なら <p> ごと消してOK） -->
+      <p class="ship-scene__line ship-scene__line--1">Spreading shochu<br>through digital.</p>
+      <p class="ship-scene__line ship-scene__line--2">Aiming for<br>the unexplored.</p>
+      <p class="ship-scene__line ship-scene__line--3">Make every shochu encounter<br>more fun.</p>
+      <!-- 最後にグラス全体が映ったとき、グラスの左（スマホは上）に出す名前 -->
+      <p class="ship-scene__brand"><span>Nondadon</span></p>
+
+      <div class="ship-scene__hint"><span>Scroll</span><i></i></div>
+    </div>
+  </section>
+
+  <!-- ===== のんだどんとは（トップ＋わたしたちについて） ===== -->
+  <section class="intro" id="about">
+    <div class="wrap narrow">
+      <h1 class="h-sec">About Nondadon</h1>
+      <p class="intro-catch">A shochu collection app from Kagoshima.</p>
+      <p class="intro-lead">Just snap a photo of the shochu you're drinking, and it joins your own personal collection, along with the name of the brand and the distillery. Nondadon turns the shochu you meet, so often forgotten after the night is over, into memories you can keep.</p>
+
+      <div class="intro-us">
+        <h2 class="h-sub">About Us</h2>
+        <p>We are a team of six graduate students from Kagoshima University taking part in ISHIN 2026. With the help of local distilleries and restaurants, we are building an app that uses IT to energize Kagoshima's shochu culture.</p>
+      </div>
+
+      <a class="insta" href="https://www.instagram.com/nondadon__official?vrfl=MWdzbnF6OHYyeHBmag==" target="_blank" rel="noopener">
+        <img src="../images/instagram-icon.png" width="44" height="44" alt="Instagram">
+        <span>Follow us on Instagram!</span>
+      </a>
+
+      <div class="intro-actions">
+        <a class="btn btn-primary" href="#partners">See How You Can Help</a>
+        <a class="btn btn-ghost" href="#contact">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== なぜつくるのか ===== -->
+  <section class="why" id="why">
+    <div class="wrap">
+      <h2 class="h-sec">A great shochu last night—<br class="sp">forgotten its name today?</h2>
+      <p class="sec-lead">At izakaya (Japanese pubs), we often see customers who come for new or limited-edition shochu and take photos with the bottle. The desire to collect and remember shochu is already there. But in an ordinary photo album, those encounters tend to be forgotten as soon as the night ends.</p>
+      <dl class="pain-list">
+        <div><dt>You can't recall the brand</dt><dd>When the evening is all about conversation, it's hard to remember exactly which brand you drank.</dd></div>
+        <div><dt>Photos get buried</dt><dd>Your photos aren't linked to the brand or distillery name, so you can't find them later.</dd></div>
+        <div><dt>You don't know your own taste</dt><dd>There's no easy way to keep track of how many you've tried, how you drank them, or which ones you liked.</dd></div>
+        <div><dt>No way into the story behind it</dt><dd>There are few chances to discover what makes each brand and distillery special, from ingredients and production methods to the land itself.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===== アプリでできること ===== -->
+  <section class="app" id="app">
+    <div class="wrap">
+      <h2 class="h-sec">What You Can Do with Nondadon</h2>
+      <p class="sec-lead">Drink, snap, save. Keep a record of every shochu you meet, without changing the way you usually drink.</p>
+      <p class="scroll-hint" aria-hidden="true">Scroll sideways to see all 4 steps</p>
+    </div>
+
+    <div class="shelf-scroll" tabindex="0" aria-label="How to use the app (scrolls horizontally)">
+      <ol class="shelf">
+        <li class="shelf-item">
+          <figure>
+            <img src="../images/shot-register.jpg" width="560" height="1214" loading="lazy" alt="Shochu registration screen with fields for a bottle photo, brand name, and distillery name (Japanese UI)">
+            <figcaption>
+              <span class="step-no">1</span>
+              <strong>Snap It on the Spot</strong>
+              <span>Take a photo of the bottle or glass. The app reads the label and suggests the brand, so there's almost nothing to type.</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="shelf-item">
+          <figure>
+            <img src="../images/shot-tastemap.jpg" width="560" height="900" loading="lazy" alt="Screen for entering how you drank it, how much you liked it, and the Taste Map (Japanese UI)">
+            <figcaption>
+              <span class="step-no">2</span>
+              <strong>Record the Taste</strong>
+              <span>Record how you drank it (on the rocks, mixed with hot water, and more), how much you liked it, and your impression on the Taste Map.</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="shelf-item">
+          <figure>
+            <img src="../images/shot-collection.jpg" width="560" height="1214" loading="lazy" alt="Collection screen showing photos of the shochu you've tried (Japanese UI)">
+            <figcaption>
+              <span class="step-no">3</span>
+              <strong>Grow Your Collection</strong>
+              <span>Every shochu you try is added to your collection, and you can see at a glance how many of the 2,000 brands you've tried.</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="shelf-item">
+          <figure>
+            <img src="../images/shot-calendar.jpg" width="560" height="1214" loading="lazy" alt="Calendar screen showing photos on the days you drank (Japanese UI)">
+            <figcaption>
+              <span class="step-no">4</span>
+              <strong>Look Back on Your Memories</strong>
+              <span>Use the calendar to look back on when, with whom, and which shochu you enjoyed.</span>
+            </figcaption>
+          </figure>
+        </li>
+      </ol>
+    </div>
+
+    <div class="wrap feature-pair">
+      <div class="feature">
+        <h3 class="h-sub">Taste Map</h3>
+        <p>Record your impression with a single tap on two axes: "Light / Rich" and "Fruity / Sweet Potato." We also tried a 5-point rating scale and an aroma chart, but chose this format because anyone can use it without hesitation. Where you place each shochu also helps you find others that suit your taste.</p>
+      </div>
+      <div class="feature">
+        <h3 class="h-sub">Recommendations for You<span class="tag">In Development</span></h3>
+        <p>We are developing a feature that suggests shochu close to your taste, based on your past records. Beyond how you drink it and how it tastes, we are designing how your preferences relate to ingredients, koji, and distillation methods, with input from distilleries and restaurants.</p>
+      </div>
+      <figure class="feature-shot">
+        <img src="../images/shot-recommend.jpg" width="560" height="1214" loading="lazy" alt="My Page screen listing recommended shochu (in development, Japanese UI)">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== 蔵元・飲食店のみなさまへ ===== -->
+  <section class="partners" id="partners">
+    <div class="wrap">
+      <h2 class="h-sec">To Shochu Distilleries and Restaurants</h2>
+      <p class="sec-lead">Nondadon aims to broaden the experience of drinking shochu and to build <strong>new connections between the people who make it and the people who drink it</strong>. The app is still a prototype, and that is exactly why we want its design to reflect the insights of the people who know shochu best.</p>
+
+      <div class="aim">
+        <h3 class="h-sub">What We Aim For</h3>
+        <ul class="aim-list">
+          <li><strong>Brand and distillery names stay with your customers.</strong> "That bottle I had at that place" becomes a name they can ask for next time.</li>
+          <li><strong>Feedback on how people drink and what they taste comes together.</strong> We are exploring ways to deliver drinkers' voices (how they drank it and how they felt about it) to the people who make it.</li>
+          <li><strong>A record of a drink at your restaurant brings customers back.</strong> When customers look back at their calendar, the glass they enjoyed at your place stays with them as a memory.</li>
+        </ul>
+      </div>
+
+      <h3 class="h-sub ask-title">How You Can Help</h3>
+      <div class="ask-grid">
+        <section class="ask">
+          <h4>Share Your Insights</h4>
+          <p>When you recommend shochu to a customer, what guides your choice? Please tell us how you think about it in practice: customer preferences, how to mix it, how flavor relates to production methods, and more.</p>
+        </section>
+        <section class="ask">
+          <h4>Provide Brand Information</h4>
+          <p>To make sure the app shows accurate information, we would like to use details provided by distilleries, such as ingredients, koji, distillation methods, and recommended ways to drink.</p>
+        </section>
+        <section class="ask">
+          <h4>Try Our Prototype<span class="soon">*coming soon</span></h4>
+          <p>Try recording drinks at your restaurant or with your own evening drink. It would help us greatly to hear about anything that's hard to use, and how your customers react.</p>
+        </section>
+        <section class="ask">
+          <h4>Give Us Your Honest Feedback</h4>
+          <p>No comment is too small. For example, "This feature would make it easier to recommend at our restaurant," or "This wording could be misleading."</p>
+        </section>
+      </div>
+      <p class="ask-note">We will work with you in a way that doesn't add to your workload. Please feel free to get in touch.</p>
+      <div class="center"><a class="btn btn-primary" href="#contact">Contact Us About Partnering</a></div>
+    </div>
+  </section>
+
+  <!-- ===== 活動 ===== -->
+  <section class="project" id="project">
+    <div class="wrap">
+      <h2 class="h-sec">Our Project at ISHIN 2026</h2>
+      <div class="project-body">
+        <div class="project-text">
+          <p>ISHIN 2026 is a program led by Japan's Ministry of Economy, Trade and Industry (METI) to discover and develop young IT talent and entrepreneurs in regional Japan (the Kagoshima edition of the AKATSUKI Project). It is not just a business contest: it aims to create initiatives that could only be born in that region, building on its local industries, culture, and geography, in partnership with local companies, governments, and research institutions.</p>
+          <p>Within the program, we have set our own challenges under the theme of <strong>making Kagoshima's shochu culture more enjoyable and energizing it through IT</strong>, and we are developing the app around that theme.</p>
+          <p class="ext-link"><a href="https://mitou-ishin.com/" target="_blank" rel="noopener">ISHIN Official Website (external, in Japanese)</a></p>
+        </div>
+        <ol class="timeline">
+          <li><span class="tl-date">Aug 2026</span><span class="tl-text">Project launched. Researched drinkers' habits and pain points around shochu</span></li>
+          <li><span class="tl-date">Sep 2026</span><span class="tl-text">Photo capture, records, collection, and calendar working in the prototype app</span></li>
+          <li class="is-now"><span class="tl-date">Oct 2026–</span><span class="tl-text">Interviewing distilleries and restaurants; improving the Taste Map and recommendations<em>Now</em></span></li>
+          <li><span class="tl-date">Jan 2027</span><span class="tl-text">Project period ends</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== お知らせ（js/news.en.js で更新） ===== -->
+  <section class="news" id="news">
+    <div class="wrap narrow">
+      <h2 class="h-sec">News</h2>
+      <ul class="news-list" id="news-list">
+        <li class="news-empty">Loading news...</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== メンバー ===== -->
+  <section class="members" id="members">
+    <div class="wrap narrow">
+      <h2 class="h-sec">Members</h2>
+      <p class="sec-lead">Department of Informatics, Graduate School of Science and Engineering, Kagoshima University</p>
+      <!-- 役割を書く場合は <span class="m-role">Design</span> のように名前の下に追加してください -->
+      <ul class="member-list">
+        <li><span class="m-mark" aria-hidden="true">江</span><span class="m-name">Haruka Eto</span></li>
+        <li><span class="m-mark" aria-hidden="true">山</span><span class="m-name">Osuke Yamashita</span></li>
+        <li><span class="m-mark" aria-hidden="true">石</span><span class="m-name">Ryuki Ishimaru</span></li>
+        <li><span class="m-mark" aria-hidden="true">尾</span><span class="m-name">Gunji Omagari</span></li>
+        <li><span class="m-mark" aria-hidden="true">川</span><span class="m-name">Yusei Kawagoe</span></li>
+        <li><span class="m-mark" aria-hidden="true">山</span><span class="m-name">Tomoki Yamada</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 協賛 ===== -->
+  <section class="sponsors" id="sponsors">
+    <div class="wrap narrow">
+      <h2 class="h-sec">Sponsors</h2>
+      <!-- 追加するときは <li class="sponsor">…</li> を1つ複製してください。
+           白いロゴは <div class="sponsor-logo is-dark"> にすると暗い台の上に表示されます -->
+      <ul class="sponsor-list">
+        <li class="sponsor">
+          <div class="sponsor-logo"><img src="../images/ishin2026_logo.svg" width="1534" height="372" loading="lazy" alt="ISHIN 2026, the Kagoshima edition of the AKATSUKI Project"></div>
+          <p class="sponsor-name">Self-Defined Challenge Course</p>
+        </li>
+        <li class="sponsor">
+          <div class="sponsor-logo is-dark"><img src="../images/link-spirits_logo.svg" width="220" height="146" loading="lazy" alt="LINK SPIRITS"></div>
+          <p class="sponsor-name">Saki Tominaga</p>
+          <p class="sponsor-role">CEO, LINK SPIRITS Co., Ltd.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== お問い合わせ ===== -->
+  <section class="contact" id="contact">
+    <div class="wrap narrow">
+      <h2 class="h-sec">Contact</h2>
+      <p>We welcome inquiries by email about anything related to Nondadon, including taking part in our interviews, trying the prototype, and media coverage. Please include your name (and the name of your restaurant or distillery, if applicable) and the purpose of your message.</p>
+      <!-- ▼ 実際のメールアドレスに書き換えてください（2か所） -->
+      <a class="btn btn-primary btn-wide" href="mailto:etou@mitou-ishin.com?subject=Inquiry%20about%20Nondadon">Contact Us by Email</a>
+      <p class="mail-plain">etou@mitou-ishin.com</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="f-brand">Nondadon</p>
+    <p>ISHIN 2026 / Department of Informatics, Graduate School of Science and Engineering, Kagoshima University</p>
+    <p class="f-note">In Japan, you must be 20 or older to drink alcohol. Drinking and driving is prohibited by law. Drinking during pregnancy or breastfeeding may harm the development of your baby.</p>
+    <p class="f-copy">&copy; <span id="year">2026</span> Nondadon</p>
+  </div>
+</footer>
+
+<script src="../js/news.en.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/ship-scene.js"></script>
+</body>
+</html>
